@@ -1,0 +1,36 @@
+.valores-view {
+  background-color: #ffffff;
+  padding: 80px 5%;
+}
+
+.page-intro { text-align: center; margin-bottom: 60px; }
+.pre-title { color: #a47e44; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; }
+.page-intro h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-top: 10px; }
+.intro-line { width: 50px; height: 1px; background: #000; margin: 20px auto; }
+
+.menu-container { max-width: 850px; margin: 0 auto; }
+.menu-section { margin-bottom: 60px; }
+.title-serif { color: #2d4a3e; font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 5px; }
+.section-desc { color: #888; font-style: italic; margin-bottom: 30px; }
+
+.menu-list { display: flex; flex-direction: column; gap: 40px; }
+
+.item-main { display: flex; align-items: baseline; justify-content: space-between; }
+.item-name { font-weight: 600; font-size: 1.1rem; }
+.item-dots { flex-grow: 1; border-bottom: 1px dotted #ccc; margin: 0 10px; }
+.item-price { font-weight: 700; color: #2d4a3e; }
+
+.item-sub { color: #666; font-size: 0.9rem; margin-top: 5px; }
+.item-savings { margin-top: 12px; font-size: 0.85rem; background: #fdfaf5; padding: 10px; border-left: 3px solid #a47e44; }
+
+.highlight-item { background: #fcfcfc; padding: 15px; border: 1px solid #eee; border-radius: 4px; }
+
+.btn-wa-valores {
+  display: inline-block;
+  background: #1a1a1a;
+  color: #fff;
+  padding: 15px 30px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 20px;
+}

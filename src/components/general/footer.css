@@ -1,0 +1,78 @@
+.footer {
+  width: 100dvw;
+    background-color: var(--primary-soft);
+  font-family: var(--font-body);
+
+}
+.footer-section {
+  padding: 4rem 2rem;
+  width: 80%;
+  max-width: 1000px;
+  margin: auto;
+  /* text-align: center; */
+
+}
+
+.footer-section h2 {
+  font-family: var(--font-body);
+  color: white;
+  /* margin-bottom: 1rem; */
+}
+
+.footer-section a {
+  text-decoration: none;
+  color: white;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+  font-family: var(--font-body);
+
+}
+
+
+.alt-bg {
+  /* background-color: var(--primary-soft); */
+  color: var(--white);
+}
+
+.separado-2rem {
+opacity: 0;
+}
+
+.footer-section .msg-button {
+  background-color: white;
+  color: var(--primary-color);
+  font-weight: bold;
+  padding: 1rem 2rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  margin-top: 2rem;
+  box-shadow: 2px 2px 4px rgba(70, 70, 70, 0.5);
+  transition: background-color 0.3s ease;
+  border-radius: 6px;
+  text-shadow: none;
+}
+
+.separador-2rem {
+  height: 2rem;
+}
+
+.msg-button:hover {
+  background-color: #ccc;
+}
+
+footer {
+  background: #111;
+  color: #ccc;
+  text-align: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .footer-section .msg-button {
+  padding: 1rem 1.5rem;
+  font-size: 1.03rem;
+}
+}

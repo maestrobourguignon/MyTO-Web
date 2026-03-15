@@ -1,0 +1,24 @@
+:root {
+  /* Color Principal: Rojo Imperial/Cálido */
+  --primary-color: #b22d30; 
+  
+  /* Dorado Tierra: Ajustado para que armonice con el rojo sin saturar */
+  --accent-color: #c4a47c;  
+  
+  /* Variación del rojo para estados hover o detalles sutiles */
+  /* --primary-soft: #8e2326;  */
+  --primary-soft: #7e2726; 
+
+
+  /* Fondos y Textos */
+  --bg-light: #fcfaf5;      /* Crema muy claro, casi papel */
+  --bg-section: #f4efdf;    /* Un tono más hacia el pergamino para separar secciones */
+  --text-main: #2a2a2a;     /* Un gris casi negro para máxima legibilidad */
+  --text-muted: #555555;    /* Para descripciones secundarias */
+  --white: #ffffff;
+  --dark-white: #dddddd;
+
+  /* Tipografía */
+  --font-main: 'Trajan Pro', serif;
+  --font-body: 'Inter', 'Segoe UI', sans-serif; /* Tipografía limpia para textos largos */
+}

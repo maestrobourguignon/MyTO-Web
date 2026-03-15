@@ -1,0 +1,130 @@
+
+h1, h2, h3 {
+  font-family: var(--font-body);
+  color: var(--primary-color);
+  /* text-transform: uppercase; */
+  letter-spacing: 2px;
+}
+
+.home-container h1, .home-container h2, .home-container h3 {
+  text-transform: uppercase;
+}
+
+.home-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--primary-color);
+  color: var(--text-main);
+  line-height: 1.6;
+  margin-top: 60px;
+}
+
+/* HERO */
+.hero {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: url('https://espaciopakua.com.ar/uploads/portada-myto.jpg') no-repeat center/cover;
+  color: var(--white);
+  padding: 0 20px;
+}
+
+.home-logo {
+  width: 80vw;
+  max-width: 300px;
+  margin-bottom: 20px;
+
+}
+
+.hero h1 {
+  font-size: 4rem;
+  letter-spacing: 8px;
+  margin-bottom: 0;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: var(--accent-color);
+  margin-bottom: 20px;
+}
+
+.hero-description {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  font-size: 1.1rem;
+  font-family: var(--font-body);
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+}
+
+/* BOTONES */
+.btn-primary, .btn-secondary {
+  display: inline-block;
+  padding: 12px 30px;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: 0.3s;
+  font-weight: bold;
+  margin: 10px;
+  font-family: var(--font-body);
+  box-shadow: 2px 4px 10px rgba(0,0,0,0.3);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  color: var(--white);
+}
+
+.btn-secondary {
+  border: 2px solid var(--white);
+  background-color: var(--white); 
+  color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-soft);
+}
+.btn-secondary:hover { background-color: var(--dark-white); }
+
+/* GRID CATEGORÍAS */
+
+
+/* BOX PROFESIONAL */
+.info-professional {
+  padding: 60px 20px;
+  background-color: var(--primary-soft);
+  text-align: center;
+  width: 100%;
+}
+
+.info-box {
+  max-width: 800px;
+  margin: 0 auto;
+  border: 1px solid var(--accent-color);
+  padding: 30px;
+}
+
+.info-box h3 {
+    margin-bottom: 20px;
+  color: var(--white);
+  font-family: var(--font-main);
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+}
+.info-box p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: white;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+  font-family: var(--font-body);
+}
+
+
+.emblema {
+  font-size: 2.5rem;
+  margin-top: 20px;
+  text-shadow: 0px 0px 10px rgba(255,255,255,0.8);
+}
+

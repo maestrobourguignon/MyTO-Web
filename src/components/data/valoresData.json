@@ -1,0 +1,97 @@
+{
+  "categorias": [
+    {
+      "titulo": "Acupuntura y Medicina China",
+      "descripcion": "Tratamientos milenarios para el equilibrio energético y alivio del dolor.",
+      "items": [
+        { "nombre": "Primera consulta/sesión (Tratamiento de dolor)", "precio": "42.000", "sub": "Evaluación diagnóstica y primera aplicación de agujas." },
+        { "nombre": "Acupuntura para tratamiento de dolor", "precio": "36.000", "sub": "Sesiones de seguimiento focalizadas." },
+        { "nombre": "Historia Clínica Oriental (Sindrómica)", "precio": "60.000", "sub": "Estudio profundo para tratamientos de salud interna y síndromes complejos.", "highlight": true },
+        { "nombre": "Acupuntura para tratamientos sindrómicos", "precio": "30.000", "sub": "Seguimiento de tratamientos basados en Historia Clínica Oriental." },
+        { "nombre": "Auriculoterapia", "precio": "36.000", "sub": "Tratamiento mediante puntos reflejos en la oreja." },
+        { "nombre": "Craneopuntura", "precio": "36.000", "sub": "Técnica especializada para afecciones neurológicas y motoras." },
+        { "nombre": "Acupuntura Abdominal", "precio": "36.000", "sub": "Regulación energética desde el centro vital." },
+        { "nombre": "Acupuntura Master Tung", "precio": "36.000", "sub": "Técnica de linaje familiar altamente efectiva para el dolor." },
+        { "nombre": "Aplicación de Emplastos", "precio": "0", "sub": "Fitoterapia china aplicada sobre la piel para inflamación y dolor. (Consultar valor)" }
+      ]
+    },
+    {
+      "titulo": "Masajes Integrales (90 y 70 min)",
+      "descripcion": "Sesiones de abordaje total para relajación profunda y descontracturación. Aptas para modalidad compartida.",
+      "items": [
+        { 
+          "nombre": "Masaje Completo - Opción 1 (90 min)", 
+          "precio": "42.000", 
+          "sub": "Rostro, cabeza, espalda, cuello, brazos, manos, abdomen, piernas y pies.",
+          "ahorro": "Packs x3: $115.920 | Packs x5: $189.000"
+        },
+        { 
+          "nombre": "Masaje Completo con Ventosas - Opción 6 (90 min)", 
+          "precio": "58.000", 
+          "sub": "Opción 1 potenciada con Terapia de Ventosas en espalda."
+        },
+        { 
+          "nombre": "Masaje Completo sin Abdomen - Opción 2 (70 min)", 
+          "precio": "36.000", 
+          "sub": "Rostro, cabeza, espalda, cuello, brazos, manos, piernas y pies.",
+          "ahorro": "Packs x3: $99.360 | Packs x5: $162.000"
+        },
+        { 
+          "nombre": "Masaje Completo con Ventosas - Opción 7 (70 min)", 
+          "precio": "48.000", 
+          "sub": "Opción 2 potenciada con Terapia de Ventosas en espalda."
+        }
+      ]
+    },
+    {
+      "titulo": "Masajes Focalizados y Especiales",
+      "descripcion": "Sesiones dirigidas a zonas específicas o necesidades particulares.",
+      "items": [
+        { 
+          "nombre": "Masaje Tui Na / Descontracturante (50 min)", 
+          "precio": "30.000", 
+          "sub": "Masaje en espalda y cuello para liberar tensiones.",
+          "ahorro": "Packs x3: $82.800 | Packs x5: $135.000"
+        },
+        { 
+          "nombre": "Masaje Reductor (50 min)", 
+          "precio": "30.000", 
+          "sub": "Técnicas manuales para modelado y activación circulatoria.",
+          "ahorro": "Packs x3: $82.800 | Packs x5: $135.000"
+        },
+        { 
+          "nombre": "Masaje + Ventosas Espalda (Opción 4)", 
+          "precio": "36.000", 
+          "sub": "Terapia descontracturante intensiva." 
+        },
+        { 
+          "nombre": "Masaje + Ventosas Espalda y Piernas (Opción 5)", 
+          "precio": "42.000", 
+          "sub": "Recuperación muscular integral de tren superior e inferior." 
+        },
+        { 
+          "nombre": "Drenaje Linfático (50 min)", 
+          "precio": "36.000", 
+          "sub": "Técnica suave para estimular el sistema linfático y reducir edemas." 
+        }
+      ]
+    },
+    {
+      "titulo": "Equilibrio y Diagnóstico",
+      "descripcion": "Terapias energéticas y de diagnóstico especializado.",
+      "items": [
+        { "nombre": "Sesión de Reiki (60 min)", "precio": "36.000", "sub": "Armonización energética a través de la imposición de manos." },
+        { "nombre": "Sesión de Perfil Oriental", "precio": "60.000", "sub": "Evaluación diagnóstica integral de salud.", "highlight": true }
+      ]
+    },
+    {
+      "titulo": "Terapia en Movimiento y Formación",
+      "descripcion": "Clases grupales y capacitaciones profesionales en Myto.",
+      "items": [
+        { "nombre": "Clases de Tai Chi", "precio": "0", "sub": "Meditación en movimiento para salud física y mental. (Consultar horarios)" },
+        { "nombre": "Clases de Yoga", "precio": "0", "sub": "Prácticas para flexibilidad, respiración y equilibrio. (Consultar horarios)" },
+        { "nombre": "Capacitaciones Profesionales", "precio": "0", "sub": "Cursos de Masajes, Ventosas, Auriculoterapia y Perfil Oriental." }
+      ]
+    }
+  ]
+}
