@@ -16,6 +16,8 @@ h1, h2, h3 {
   color: var(--text-main);
   line-height: 1.6;
   margin-top: 60px;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 /* HERO */

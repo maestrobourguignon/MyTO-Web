@@ -22,3 +22,8 @@
   --font-main: 'Trajan Pro', serif;
   --font-body: 'Inter', 'Segoe UI', sans-serif; /* Tipografía limpia para textos largos */
 }
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}

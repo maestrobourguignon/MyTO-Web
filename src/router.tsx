@@ -11,7 +11,7 @@ export const PageRoutes = () => {
 
   return(
     <Routes>
-      <Route path="/" element={<HomePage apiUrl={apiUrl} imgLink={imgLink} />} />
+      <Route path="/" element={<HomePage />} />
       <Route path="/:slug" element={<ContentDispatcher apiUrl={apiUrl} imgLink={imgLink} />} />
       <Route path="/valores" element={<ValoresPage apiUrl={apiUrl} />} />
     </Routes>

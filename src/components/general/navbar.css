@@ -2,6 +2,7 @@
 .navbar-container {
   width: 100%;
   position: relative;
+  overflow-x: hidden;
 }
 
 .navbar-title {
@@ -97,10 +98,12 @@
 /* --- ESTILOS DEL DRAWER (MÓVIL) --- */
 
 .menu-icon {
-  /* display: none; Oculto por defecto en escritorio */
+  /* Mostrar siempre el botón de hamburguesa */
+  display: block;
   font-size: 1.5rem;
   cursor: pointer;
-  z-index: 1002; /* Más alto que el drawer */
+  z-index: 1002;
+  color: white;
 }
 
 .drawer {
@@ -150,11 +153,6 @@
 /* --- MEDIA QUERY PARA MÓVILES (ejemplo: < 768px) --- */
 @media (max-width: 768px) {
   
-  /* Mostrar icono de hamburguesa */
-  .menu-icon {
-    display: block; 
-  }
-
   /* Ocultar navegación de escritorio */
   .desktop-nav {
     display: none;

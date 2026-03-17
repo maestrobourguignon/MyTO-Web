@@ -7,12 +7,17 @@ export interface CategoriaItem {
   };
 
 interface ServiceBlockProps {
-  label: string;
+  slug: string;
+  alt_img_url: string | null;
+  img_url: string;
   title: string;
-  description: string;
-  imageUrl: string;
-  link: string;
-  linkText: string;
+  titulo: string;
+  sinopsis: string;
+  label?: string;
+  description?: string;
+  imageUrl?: string;
+  link?: string;
+  linkText?: string;
   isReverse?: boolean;
 };
 
