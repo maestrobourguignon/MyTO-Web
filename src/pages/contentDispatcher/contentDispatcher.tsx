@@ -2,12 +2,18 @@ import { useParams } from "react-router";
 import { TerapiasPage } from "../terapias/terapiaspage";
 import { InfoPage } from "../info/infoPage";
 import type { UrlProps } from "../../interface/interfaces";
+import { ValoresPage } from "../valores/valorespage";
 
 export const ContentDispatcher = ({apiUrl, imgLink}:UrlProps) => {
   const { slug } = useParams();
 
   // Definimos qué slugs pertenecen a los listados de TerapiasPage
   const esListado = ['terapias', 'movimiento', 'cursos'].includes(slug || '');
+  const esValores = ['valores', 'valoresacupuntura', 'valoresmasajes'].includes(slug || '');
+
+  if (esValores) {
+    return <ValoresPage apiUrl={apiUrl} />; // InfoPage con prop para valores
+  }
 
   if (esListado) {
     return <TerapiasPage apiUrl={apiUrl} imgLink={imgLink}/>; // Este usa useParams() internamente y verá el slug

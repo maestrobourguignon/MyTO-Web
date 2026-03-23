@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import type { UrlProps } from '../../interface/interfaces';
 import './valorespage.css';
 import { contacto } from '../../components/data/contacto';
+import { useParams } from 'react-router';
 
 interface ValorAPI {
   id: number;
@@ -24,10 +25,13 @@ const formatPrice = (price: number) => {
 };
 
 export const ValoresPage = ({ apiUrl }: UrlProps) => {
+  const { slug } = useParams();
   const [categorias, setCategorias] = useState<CategoriaAgrupada[]>([]);
+  const [ventosasItems, setVentosasItems] = useState<ValorAPI[]>([]);
   const [openCategory, setOpenCategory] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  // const [order, setOrder] = useState<string[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -47,12 +51,36 @@ export const ValoresPage = ({ apiUrl }: UrlProps) => {
         }, {} as Record<string, CategoriaAgrupada>);
 
         // Ordenar categorías: acupuntura, masajes, ventosas, reiki
-        const order = ['Acupuntura', 'Masajes', 'Ventosas', 'Reiki', 'Perfil', 'Clase'];
-        const sortedCategorias = order
-          .filter(cat => grouped[cat])
-          .map(cat => grouped[cat]);
+        if (slug === 'valoresacupuntura') {
+          const order = ['Acupuntura', 'Perfil'];
+          const sortedCategorias = order
+            .filter(cat => grouped[cat])
+            .map(cat => grouped[cat]);
 
-        setCategorias(sortedCategorias);
+          setCategorias(sortedCategorias);
+        } else if (slug === 'valoresmasajes') {
+          // Solo mostrar Masajes para valoresmasajes
+          const order = ['Masajes'];
+          const sortedCategorias = order
+            .filter(cat => grouped[cat])
+            .map(cat => grouped[cat]);
+
+          setCategorias(sortedCategorias);
+          // Para valoresmasajes, expandir todas las categorías por defecto
+          setOpenCategory('Masajes');
+          // Guardar items de Ventosas para usarlos en el renderizado especial
+          if (grouped['Ventosas']) {
+            setVentosasItems(grouped['Ventosas'].items);
+          }
+        } else {
+          const order = ['Acupuntura', 'Masajes', 'Ventosas', 'Reiki', 'Perfil', 'Clase'];
+          const sortedCategorias = order
+            .filter(cat => grouped[cat])
+            .map(cat => grouped[cat]);
+
+          setCategorias(sortedCategorias);
+        }
+
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Error desconocido');
       } finally {
@@ -105,16 +133,16 @@ export const ValoresPage = ({ apiUrl }: UrlProps) => {
           {categorias.map((categoria) => (
             <section
               key={categoria.nombre}
-              className={`menu-section ${openCategory === categoria.nombre ? 'open' : ''}`}
+              className={`menu-section ${openCategory === categoria.nombre ? 'open' : ''} ${slug === 'valoresmasajes' ? 'always-open' : ''}`}
             >
               <button
-                className="accordion-header"
-                onClick={() => toggleCategory(categoria.nombre)}
+                className={`accordion-header ${slug === 'valoresmasajes' ? 'no-collapse' : ''}`}
+                onClick={() => slug !== 'valoresmasajes' && toggleCategory(categoria.nombre)}
                 aria-expanded={openCategory === categoria.nombre}
               >
                 <div className="accordion-title-wrap">
                   <h2 className="title-serif">{categoria.nombre === 'Clase' ? 'Respiración y Movimiento' : categoria.nombre}</h2>
-                  <span className="item-count">{categoria.items.length} opciones</span>
+                  <span className="item-count">{slug === 'valoresmasajes' ? '5' : categoria.items.length} opciones</span>
                 </div>
                 <span className="accordion-icon">
                   {openCategory === categoria.nombre ? '−' : '+'}
@@ -123,29 +151,107 @@ export const ValoresPage = ({ apiUrl }: UrlProps) => {
 
               <div className={`accordion-content ${openCategory === categoria.nombre ? 'expanded' : ''}`}>
                 <div className="menu-list">
-                  {categoria.items.map((item) => (
-                    <div key={item.id} className="menu-item">
-                      <div className="item-main">
-                        <span className="item-name">{item.titulo}</span>
-                        <span className="item-dots"></span>
-                        <span className="item-price">{formatPrice(item.valor)}</span>
-                      </div>
-                      <p className="item-sub">{item.sinopsis}</p>
-                      <p className="item-detail">{item.detalle}</p>
-
-                      {(item.pack_3 > 0 || item.pack_5 > 0) && (
-                        <div className="item-packs">
-                          <span className="pack-label">Packs ahorro:</span>
-                          {item.pack_3 > 0 && (
-                            <span className="pack-tag">x3: {formatPrice(item.pack_3)}</span>
-                          )}
-                          {item.pack_5 > 0 && (
-                            <span className="pack-tag">x5: {formatPrice(item.pack_5)}</span>
+                  {slug === 'valoresmasajes' && categoria.nombre === 'Masajes' ? (
+                    // Renderizado especial para valoresmasajes con numeración personalizada
+                    <>
+                      {categoria.items.slice(0, 3).map((item, idx) => (
+                        <div key={item.id} className="menu-item">
+                          <span className="item-option-number">Opción {idx + 1}</span>
+                          <div className="item-main">
+                            <span className="item-name">{item.titulo}</span>
+                            <span className="item-dots"></span>
+                            <span className="item-price">{formatPrice(item.valor)}</span>
+                          </div>
+                          <p className="item-sub">{item.sinopsis}</p>
+                          <p className="item-detail">{item.detalle}</p>
+                          {(item.pack_3 > 0 || item.pack_5 > 0) && (
+                            <div className="item-packs">
+                              <span className="pack-label">Packs ahorro:</span>
+                              {item.pack_3 > 0 && (
+                                <span className="pack-tag">x3: {formatPrice(item.pack_3)}</span>
+                              )}
+                              {item.pack_5 > 0 && (
+                                <span className="pack-tag">x5: {formatPrice(item.pack_5)}</span>
+                              )}
+                            </div>
                           )}
                         </div>
-                      )}
-                    </div>
-                  ))}
+                      ))}
+                      {/* Ventosas como opción 4.1, 4.2, 4.3, 4.4 */}
+                      {ventosasItems.length > 0 && ventosasItems.map((item, idx) => (
+                        <div key={item.id} className="menu-item">
+                          <div className="item-main">
+                            <span className="item-option-number">Opción 4.{idx + 1}</span>
+                            <span className="item-name">{item.titulo}</span>
+                            <span className="item-dots"></span>
+                            <span className="item-price">{formatPrice(item.valor)}</span>
+                          </div>
+                          <p className="item-sub">{item.sinopsis}</p>
+                          <p className="item-detail">{item.detalle}</p>
+                          {(item.pack_3 > 0 || item.pack_5 > 0) && (
+                            <div className="item-packs">
+                              <span className="pack-label">Packs ahorro:</span>
+                              {item.pack_3 > 0 && (
+                                <span className="pack-tag">x3: {formatPrice(item.pack_3)}</span>
+                              )}
+                              {item.pack_5 > 0 && (
+                                <span className="pack-tag">x5: {formatPrice(item.pack_5)}</span>
+                              )}
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                      {/* Último item de Masajes como opción 5 */}
+                      {categoria.items.slice(3).map((item) => (
+                        <div key={item.id} className="menu-item">
+                          <div className="item-main">
+                            <span className="item-option-number">Opción 5</span>
+                            <span className="item-name">{item.titulo}</span>
+                            <span className="item-dots"></span>
+                            <span className="item-price">{formatPrice(item.valor)}</span>
+                          </div>
+                          <p className="item-sub">{item.sinopsis}</p>
+                          <p className="item-detail">{item.detalle}</p>
+                          {(item.pack_3 > 0 || item.pack_5 > 0) && (
+                            <div className="item-packs">
+                              <span className="pack-label">Packs ahorro:</span>
+                              {item.pack_3 > 0 && (
+                                <span className="pack-tag">x3: {formatPrice(item.pack_3)}</span>
+                              )}
+                              {item.pack_5 > 0 && (
+                                <span className="pack-tag">x5: {formatPrice(item.pack_5)}</span>
+                              )}
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </>
+                  ) : (
+                    // Renderizado normal para otros slugs
+                    categoria.items.map((item) => (
+                      <div key={item.id} className="menu-item">
+                        <div className="item-main">
+                          <span className="item-name">{item.titulo}</span>
+                          <span className="item-dots"></span>
+                          <span className="item-price">{formatPrice(item.valor)}</span>
+                        </div>
+                        <p className="item-sub">{item.sinopsis}</p>
+                        <p className="item-detail">{item.detalle}</p>
+
+                        {(item.pack_3 > 0 || item.pack_5 > 0) && (
+                          <div className="item-packs">
+                            <span className="pack-label">Packs ahorro:</span>
+                            {item.pack_3 > 0 && (
+                              <span className="pack-tag">x3: {formatPrice(item.pack_3)}</span>
+                            )}
+                            {item.pack_5 > 0 && (
+                              <span className="pack-tag">x5: {formatPrice(item.pack_5)}</span>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    ))
+                  )}
                 </div>
               </div>
             </section>

@@ -126,6 +126,20 @@
   background-color: rgba(196, 164, 124, 0.1);
 }
 
+.accordion-header.no-collapse {
+  cursor: default;
+  pointer-events: none;
+}
+
+/* Always open for valoresmasajes */
+.menu-section.always-open .accordion-content {
+  max-height: none;
+}
+
+.menu-section.always-open .accordion-icon {
+  display: none;
+}
+
 .accordion-title-wrap {
   display: flex;
   flex-direction: column;
@@ -192,6 +206,13 @@
   font-size: 0.95rem;
   color: var(--text-main);
   line-height: 1.3;
+}
+
+.item-option-number {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--primary-color);
+  margin-bottom: 4px;
 }
 
 .item-price {

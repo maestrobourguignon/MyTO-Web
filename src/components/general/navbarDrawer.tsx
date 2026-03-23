@@ -47,7 +47,7 @@ export const NavbarDrawer = ({ isOpen, onClose, mensaje }: NavbarDrawerProps) =>
         { label: "Curso de Perfil", href: "/perfil-oriental" },
       ]
     },
-    { label: "Aula Virtual", href: "https://www.aula.espaciopakua.com.ar" },
+    { label: "Aula Virtual", href: "https://aula.espaciopakua.com.ar" },
     { label: "Contacto", href: mensaje },
   ];
 
